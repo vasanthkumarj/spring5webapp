@@ -25,7 +25,7 @@ public class Books {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
-        this.authors = authors;
+         this.authors = authors;
     }
 
     public Long getId() {
