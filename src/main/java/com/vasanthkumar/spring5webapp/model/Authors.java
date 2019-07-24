@@ -18,6 +18,10 @@ public class Authors {
     public Authors() {
     }
 
+    public Authors(String name) {
+        this.name = name;
+    }
+
     public Authors(String name, Set<Books> books) {
         this.name = name;
         this.books = books;

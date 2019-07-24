@@ -12,7 +12,8 @@ public class Books {
     private Long id;
     private String title;
     private String isbn;
-    private String publisher;
+    @OneToOne
+    private Publishers publishers;
     @ManyToMany
     @JoinTable(name = "book_author",joinColumns = @JoinColumn(name = "book_id"),
     inverseJoinColumns = @JoinColumn(name="author_id"))
@@ -21,11 +22,10 @@ public class Books {
     public Books() {
     }
 
-    public Books(String title, String isbn, String publisher, Set<Authors> authors) {
+    public Books(String title, String isbn, Publishers publishers) {
         this.title = title;
         this.isbn = isbn;
-        this.publisher = publisher;
-         this.authors = authors;
+        this.publishers = publishers;
     }
 
     public Long getId() {
@@ -52,12 +52,12 @@ public class Books {
         this.isbn = isbn;
     }
 
-    public String getPublisher() {
-        return publisher;
+    public Publishers getPublishers() {
+        return publishers;
     }
 
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
+    public void setPublishers(Publishers publishers) {
+        this.publishers = publishers;
     }
 
     public Set<Authors> getAuthors() {
@@ -87,7 +87,6 @@ public class Books {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", publisher='" + publisher + '\'' +
                 ", authors=" + authors +
                 '}';
     }
